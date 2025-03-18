@@ -29,12 +29,13 @@
         /* Navigace */
         .navbar {
             background: #fff;
-            padding: 0,6rem 5%;
+            padding: 0.6rem 5%; /* Opravená syntaxe podle cenik.html */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            min-height: 80px; /* Konsistentní minimální výška podle cenik.html */
         }
 
         .nav-content {
@@ -53,7 +54,7 @@
         }
         .logo img {
             width: 200px;
-            height: 70px;
+            height: 70px; /* Stejné jako v cenik.html */
         }
 
         .nav-links {
@@ -105,7 +106,7 @@
             text-align: center;
             color: white;
             padding: 0 5%;
-            margin-top: 60px;
+            margin-top: 100px; /* Upraveno na 100px podle cenik.html */
             flex-grow: 1;
         }
 
@@ -136,15 +137,19 @@
         /* Responzivita */
         @media only screen and (max-width: 768px) {
             .nav-links {
-                display: none; /* Skryje odkazy na mobilu */
+                display: none;
             }
 
             .mobile-menu-btn {
-                display: block; /* Zobrazí tlačítko na mobilu */
+                display: block;
             }
 
             .nav-links.active {
-                display: flex; /* Zobrazí menu po kliknutí */
+                display: flex;
+            }
+
+            .navbar {
+                min-height: 60px; /* Menší minimální výška pro mobil podle cenik.html */
             }
         }
     </style>
@@ -157,6 +162,7 @@
             </a>
             <button class="mobile-menu-btn">☰</button>
             <div class="nav-links">
+                <a href="index.html">Úvod</a> <!-- Přidán pro konzistenci -->
                 <a href="kurzy.html">Kurzy</a>
                 <a href="cenik.html">Ceník</a>
                 <a href="kontakt.html">Kontakt</a>
@@ -181,7 +187,7 @@
         if (menuBtn && navLinks) {
             menuBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-                console.log('Menu clicked, active class toggled'); // Ladění
+                console.log('Menu clicked, active class toggled');
             });
         } else {
             console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
