@@ -35,7 +35,6 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            /* Odebrána pevná výška, aby se přizpůsobila obsahu jako v index.html */
         }
 
         .nav-content {
@@ -54,8 +53,7 @@
         }
         .logo img {
             width: 200px;
-            height: auto;
-            max-height: 50px; /* Zachováno, ale bez pevné výšky navigace se logo přizpůsobí */
+            height: auto; /* Odebráno max-height, aby odpovídalo index.html */
         }
 
         .nav-links {
@@ -101,7 +99,7 @@
         .courses-section {
             max-width: 1200px;
             margin: 0 auto 2rem auto;
-            padding: 100px 5% 2rem 5%; /* Zvýšeno na 100px, aby zohlednilo dynamickou výšku navigace */
+            padding: 100px 5% 2rem 5%; /* Zachováno pro dostatečný odstup */
             flex-grow: 1;
         }
 
@@ -149,7 +147,7 @@
             font-size: 1.1rem;
             color: #333;
             margin-bottom: 0.5rem;
-            list-style-type: none; /* Explicitní odstranění odrážek u li */
+            list-style-type: none;
         }
 
         .contact-text {
@@ -176,7 +174,7 @@
         }
 
         /* Responzivita */
-        @media only screen and (max-width: 1024px) {
+        @media only screen and (max-width: 768px) {
             .nav-links {
                 display: none;
             }
@@ -189,16 +187,8 @@
                 display: flex;
             }
 
-            .navbar {
-                /* Bez pevné výšky, přizpůsobí se obsahu */
-            }
-
-            .logo img {
-                max-height: 40px;
-            }
-
             .courses-section {
-                padding-top: 80px; /* Upraveno na 80px pro mobilní zařízení */
+                padding-top: 80px; /* Zachováno pro mobilní zařízení */
             }
 
             .course-list {
