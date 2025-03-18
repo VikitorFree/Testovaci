@@ -29,13 +29,13 @@
         /* Navigace */
         .navbar {
             background: #fff;
-            padding: 0,6rem 5%;
+            padding: 0.6rem 5%; /* Opravená syntaxe podle cenik.html */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            min-height: 80px; /* Nastavení minimální výšky pro konzistenci */
+            min-height: 80px; /* Konsistentní minimální výška podle cenik.html */
         }
 
         .nav-content {
@@ -54,7 +54,7 @@
         }
         .logo img {
             width: 200px;
-            height: 70px;
+            height: 70px; /* Stejné jako v cenik.html */
         }
 
         .nav-links {
@@ -99,8 +99,8 @@
         /* Kurzy sekce */
         .courses-section {
             max-width: 1200px;
-            margin: 0 auto 2rem auto;
-            padding: 100px 5% 2rem 5%; /* Zachováno, ale upravíme podle potřeby */
+            margin: 100px auto 2rem auto; /* Upraveno na margin-top: 100px podle cenik.html */
+            padding: 0 5% 2rem 5%; /* Odstraněn padding-top, nyní řízený margin */
             flex-grow: 1;
         }
 
@@ -189,11 +189,11 @@
             }
 
             .navbar {
-                min-height: 60px; /* Menší minimální výška pro mobil */
+                min-height: 60px; /* Menší minimální výška pro mobil podle cenik.html */
             }
 
             .courses-section {
-                padding-top: 80px; /* Upraveno pro mobilní zařízení */
+                margin-top: 80px; /* Upraveno pro mobilní zařízení */
             }
 
             .course-list {
