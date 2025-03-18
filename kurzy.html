@@ -122,34 +122,42 @@
         }
 
         .course-list {
-            list-style-type: none;
+            list-style-type: none; /* Odstranění odrážek */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
         }
 
         .course-item {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.7); /* Změněno na 0.7 podle tvého preference */
             padding: 1rem;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            /* Posun levého ohraničení o 10px vlevo */
+            margin-left: -10px;
         }
 
         .course-item:hover {
             transform: translateY(-5px);
         }
 
+        .course-item ul {
+            padding-left: 0; /* Odstranění implicitního odsazení ul */
+        }
+
         .course-item li {
             font-size: 1.1rem;
             color: #333;
             margin-bottom: 0.5rem;
+            /* Alternativní řešení: Přidání paddingu místo margin-left na .course-item */
+            /* padding-left: 10px; */
         }
 
         .contact-text {
             text-align: center;
             padding: 1rem;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.7); /* Změněno na 0.7 pro konzistenci */
             margin-top: 2rem;
             color: #333;
             border-radius: 5px;
@@ -197,6 +205,10 @@
 
             .course-list {
                 grid-template-columns: 1fr; /* Jeden sloupec na mobilu */
+            }
+
+            .course-item {
+                margin-left: 0; /* Na mobilu odstraníme posun, aby se obsah vešel */
             }
         }
     </style>
