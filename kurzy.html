@@ -35,7 +35,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            height: 70px; /* Zvýšeno z 60px na 70px, aby odpovídalo index.html */
+            /* Odebrána pevná výška, aby se přizpůsobila obsahu jako v index.html */
         }
 
         .nav-content {
@@ -44,7 +44,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100%;
         }
 
         .logo {
@@ -56,7 +55,7 @@
         .logo img {
             width: 200px;
             height: auto;
-            max-height: 60px; /* Zvýšeno z 50px na 60px, aby odpovídalo výšce navigace */
+            max-height: 50px; /* Zachováno, ale bez pevné výšky navigace se logo přizpůsobí */
         }
 
         .nav-links {
@@ -102,7 +101,7 @@
         .courses-section {
             max-width: 1200px;
             margin: 0 auto 2rem auto;
-            padding: 90px 5% 2rem 5%; /* Zvýšeno z 80px na 90px kvůli vyšší navigaci */
+            padding: 100px 5% 2rem 5%; /* Zvýšeno na 100px, aby zohlednilo dynamickou výšku navigace */
             flex-grow: 1;
         }
 
@@ -143,7 +142,7 @@
 
         .course-item ul {
             padding-left: 0;
-            list-style-type: none; /* Odstranění odrážek u vnořeného seznamu */
+            list-style-type: none;
         }
 
         .course-item li {
@@ -191,15 +190,15 @@
             }
 
             .navbar {
-                height: 60px; /* Zvýšeno z 50px na 60px, aby odpovídalo index.html */
+                /* Bez pevné výšky, přizpůsobí se obsahu */
             }
 
             .logo img {
-                max-height: 50px; /* Zvýšeno z 40px na 50px */
+                max-height: 40px;
             }
 
             .courses-section {
-                padding-top: 70px; /* Zvýšeno z 60px na 70px kvůli vyšší navigaci */
+                padding-top: 80px; /* Upraveno na 80px pro mobilní zařízení */
             }
 
             .course-list {
