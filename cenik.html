@@ -2,7 +2,7 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Autoškola Kovář - Ceník</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
@@ -20,17 +20,22 @@
             color: #333;
             background-size: cover;
             background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Navigace */
         .navbar {
             background: #fff;
-            padding: 0,6rem 5%;
+            padding: 0.6rem 5%; /* Opravená syntaxe */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            min-height: 80px; /* Konsistentní minimální výška */
         }
 
         .nav-content {
@@ -49,7 +54,7 @@
         }
         .logo img {
             width: 200px;
-            height: 70px;
+            height: 70px; /* Stejné jako v index.html */
         }
 
         .nav-links {
@@ -67,24 +72,47 @@
             color: #3498db;
         }
 
+        /* Hamburger menu tlačítko - skryté ve výchozím stavu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hamburger menu aktivní stav */
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
         /* Obsah stránky */
         .content {
             max-width: 1200px;
-            margin: 100px auto 0;
+            margin: 100px auto 0; /* Zachováno pro odstup od navbar */
             padding: 1rem 5%;
         }
 
         h2, h3 {
             color: #fff;
             background: rgba(0, 0, 0, 0.4);
-	    font-size: 1,5rem !important;
+            font-size: 1.5rem; /* Opravená syntaxe */
             padding: 0.5rem 1rem;
             display: inline-block;
             border-radius: 5px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             margin-bottom: 1rem;
         }
-
 
         /* Styly tabulek */
         table {
@@ -100,10 +128,10 @@
             padding: 6px;
             text-align: left;
             color: #333;
-	    font-size: 0.8rem; /* Sníženo z implicitní velikosti (16px) na 0.8rem (~12px) */
+            font-size: 0.8rem; /* Sníženo z implicitní velikosti */
         }
- 	
- 	td:nth-child(2) {
+
+        td:nth-child(2) {
             min-width: 60px; /* Minimální šířka sloupce */
             white-space: nowrap; /* Zabrání zalamování textu */
         }
@@ -120,45 +148,36 @@
         tr:nth-child(odd) {
             background-color: #ffffff;
         }
-	
-	/* Zápatí */
+
+        /* Zápatí */
         .footer {
             background: #2c3e50;
             color: white;
             text-align: center;
             padding: 1rem 5%;
-            margin-top: auto; /* Posune zápatí dolů, pokud je málo obsahu */
+            margin-top: auto;
         }
 
         .footer p {
             font-size: 0.9rem;
         }
 
-
         /* Responzivita */
-        @media (max-width: 768px) {
+        @media only screen and (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
             .mobile-menu-btn {
                 display: block;
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                color: #2c3e50;
-                cursor: pointer;
             }
 
             .nav-links.active {
                 display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                padding: 1rem;
+            }
+
+            .navbar {
+                min-height: 60px; /* Menší minimální výška pro mobil */
             }
 
             table, th, td {
@@ -168,9 +187,10 @@
             th, td {
                 padding: 4px;
             }
-	    td:nth-child(2) {
-        	min-width: 40px; /* Sníženo z 80px na 50px pro menší obrazovky */
-   	    }
+
+            td:nth-child(2) {
+                min-width: 40px; /* Sníženo pro menší obrazovky */
+            }
         }
     </style>
 </head>
@@ -182,6 +202,7 @@
             </a>
             <button class="mobile-menu-btn">☰</button>
             <div class="nav-links">
+                <a href="index.html">Úvod</a> <!-- Přidán pro konzistenci -->
                 <a href="kurzy.html">Kurzy</a>
                 <a href="cenik.html">Ceník</a>
                 <a href="kontakt.html">Kontakt</a>
@@ -192,7 +213,7 @@
 
     <div class="content">
         <h2>Základní výcvik</h2>
-	<br><br>
+        <br><br>
         <h3>Automobil</h3>
         <table>
             <tr>
@@ -533,40 +554,44 @@
         </table>
     </div>
 
-	<footer class="footer">
+    <footer class="footer">
         <p>© 2025 Autoškola Kovář</p>
-    	</footer>
+    </footer>
 
     <script>
         // Mobilní menu
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
 
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Hladké scrollování
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                console.log('Menu clicked, active class toggled'); // Ladění
             });
-        });
+        } else {
+            console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
+        }
 
-        // Unsplash API pro pozadí
+        // Unsplash API pro pozadí s fallbackem
         const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
         const query = 'driving, car, motorcycle, drivingschool';
         const width = 1920;
         const height = 1080;
-        const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape`;
+        const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
 
         fetch(url)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Nepodařilo se načíst obrázek z Unsplash.');
+                }
+                return response.json();
+            })
             .then(data => {
                 document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+            })
+            .catch(error => {
+                console.error('Chyba při načítání Unsplash: ', error);
+                document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
             });
     </script>
 </body>
