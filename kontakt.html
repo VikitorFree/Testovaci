@@ -29,13 +29,13 @@
         /* Navigace */
         .navbar {
             background: #fff;
-            padding: 1rem 5%;
+            padding: 0.6rem 5%; /* Sjednoceno s cenik.html */
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            min-height: 80px; /* Stejné jako v kurzy.html */
+            min-height: 80px; /* Sjednoceno s cenik.html */
         }
 
         .nav-content {
@@ -54,7 +54,7 @@
         }
         .logo img {
             width: 200px;
-            height: auto;
+            height: 70px; /* Sjednoceno s cenik.html */
         }
 
         .nav-links {
@@ -99,8 +99,8 @@
         /* Kontakt sekce */
         .contact-section {
             max-width: 1200px;
-            margin: 0 auto 2rem auto;
-            padding: 100px 5% 2rem 5%; /* Stejný padding-top jako v kurzy.html */
+            margin: 100px auto 2rem auto; /* Sjednoceno s cenik.html (margin-top: 100px) */
+            padding: 1rem 5%; /* Upraveno podle cenik.html (padding: 1rem 5%) */
             flex-grow: 1;
             color: #333;
         }
@@ -115,13 +115,13 @@
         }
 
         .contact-info h2 {
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* Sjednoceno s cenik.html */
             margin-bottom: 1rem;
             color: #2c3e50;
         }
 
         .contact-info p {
-            font-size: 1.1rem;
+            font-size: 0.8rem; /* Sjednoceno s cenik.html */
             margin-bottom: 0.5rem;
         }
 
@@ -133,7 +133,7 @@
         }
 
         .contact-form h2 {
-            font-size: 1.8rem;
+            font-size: 1.5rem; /* Sjednoceno s cenik.html */
             margin-bottom: 1rem;
             color: #2c3e50;
             text-align: center;
@@ -150,7 +150,7 @@
             padding: 0.5rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 1rem;
+            font-size: 0.8rem; /* Sjednoceno s cenik.html */
         }
 
         .contact-form textarea {
@@ -165,7 +165,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 0.8rem; /* Sjednoceno s cenik.html */
             transition: background-color 0.3s;
         }
 
@@ -201,16 +201,29 @@
             }
 
             .navbar {
-                min-height: 60px;
+                min-height: 60px; /* Sjednoceno s cenik.html */
             }
 
             .contact-section {
-                padding-top: 80px;
+                margin-top: 100px; /* Sjednoceno s cenik.html */
+                padding: 1rem 5%; /* Zachováno podle cenik.html */
             }
 
             .contact-info,
             .contact-form {
                 padding: 1rem;
+            }
+
+            .contact-info p,
+            .contact-form input,
+            .contact-form textarea,
+            .contact-form button {
+                font-size: 0.6rem; /* Sjednoceno s cenik.html */
+            }
+
+            .contact-info h2,
+            .contact-form h2 {
+                font-size: 1.5rem; /* Zachováno podle cenik.html */
             }
         }
     </style>
