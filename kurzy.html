@@ -100,15 +100,22 @@
             max-width: 1200px;
             margin: 100px auto 2rem auto; /* Odstup od pevné navigace */
             padding: 0 5% 2rem 5%;
-            background: #fff; /* Bílé pozadí pro celou sekci */
             flex-grow: 1;
         }
 
         .courses-section h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
+            font-size: 1.5rem; /* Stejně jako v cenik.html */
+            color: #fff;
+            background: rgba(0, 0, 0, 0.4); /* Poloprůhledné tmavé pozadí */
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            border-radius: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
             text-align: center;
-            margin: 2rem 0;
+            width: fit-content; /* Aby pozadí obalilo text */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .course-list {
@@ -119,10 +126,10 @@
         }
 
         .course-item {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9); /* Poloprůhledné bílé pozadí jako v cenik.html */
             padding: 1rem;
-            border-left: 4px solid #3498db;
             border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Stejný stín jako tabulky */
             transition: transform 0.3s;
         }
 
@@ -139,9 +146,11 @@
         .contact-text {
             text-align: center;
             padding: 1rem;
-            background: #fff; /* Bílé pozadí pro text */
+            background: rgba(255, 255, 255, 0.9); /* Poloprůhledné bílé pozadí */
             margin-top: 2rem;
             color: #333;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* Zápatí */
