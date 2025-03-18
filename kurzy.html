@@ -122,7 +122,7 @@
         }
 
         .course-list {
-            list-style-type: none; /* Odstranění odrážek */
+            list-style-type: none; /* Odstranění odrážek na vrchní úrovni */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1rem;
@@ -134,7 +134,6 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
-            /* Posun levého ohraničení o 10px vlevo */
             margin-left: -10px;
         }
 
@@ -144,14 +143,13 @@
 
         .course-item ul {
             padding-left: 0; /* Odstranění implicitního odsazení ul */
+            list-style-type: none; /* Odstranění odrážek u vnořeného seznamu */
         }
 
         .course-item li {
             font-size: 1.1rem;
             color: #333;
             margin-bottom: 0.5rem;
-            /* Alternativní řešení: Přidání paddingu místo margin-left na .course-item */
-            /* padding-left: 10px; */
         }
 
         .contact-text {
