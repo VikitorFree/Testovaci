@@ -35,6 +35,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            min-height: 80px; /* Nastavení minimální výšky pro konzistenci */
         }
 
         .nav-content {
@@ -53,7 +54,7 @@
         }
         .logo img {
             width: 200px;
-            height: auto; /* Odebráno max-height, aby odpovídalo index.html */
+            height: auto; /* Flexibilní výška podle poměru stran */
         }
 
         .nav-links {
@@ -99,7 +100,7 @@
         .courses-section {
             max-width: 1200px;
             margin: 0 auto 2rem auto;
-            padding: 100px 5% 2rem 5%; /* Zachováno pro dostatečný odstup */
+            padding: 100px 5% 2rem 5%; /* Zachováno, ale upravíme podle potřeby */
             flex-grow: 1;
         }
 
@@ -187,8 +188,12 @@
                 display: flex;
             }
 
+            .navbar {
+                min-height: 60px; /* Menší minimální výška pro mobil */
+            }
+
             .courses-section {
-                padding-top: 80px; /* Zachováno pro mobilní zařízení */
+                padding-top: 80px; /* Upraveno pro mobilní zařízení */
             }
 
             .course-list {
