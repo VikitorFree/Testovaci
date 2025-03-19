@@ -117,7 +117,7 @@
             border-radius: 5px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             margin-bottom: 1rem;
-            scroll-margin-top: 100px;
+            scroll-margin-top: 100px; /* Výchozí hodnota pro desktop */
         }
 
         /* Styly tabulek */
@@ -198,9 +198,7 @@
                 min-width: 40px;
             }
 
-            h2, h3 {
-                scroll-margin-top: 90px; /* Zvýšeno pro mobil */
-            }
+            /* scroll-margin-top bude nastaven dynamicky JavaScriptem */
         }
     </style>
 </head>
@@ -581,6 +579,22 @@
         } else {
             console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
         }
+
+        // Dynamické nastavení scroll-margin-top
+        function adjustScrollMargin() {
+            const navbar = document.querySelector('.navbar');
+            const headings = document.querySelectorAll('h2, h3');
+            const navbarHeight = navbar.offsetHeight; // Skutečná výška navbaru
+            const extraMargin = 30; // Extra rezerva pro jistotu
+
+            headings.forEach(heading => {
+                heading.style.scrollMarginTop = `${navbarHeight + extraMargin}px`;
+            });
+        }
+
+        // Spustí při načtení stránky a při změně velikosti okna
+        window.addEventListener('load', adjustScrollMargin);
+        window.addEventListener('resize', adjustScrollMargin);
 
         // Unsplash API pro pozadí s fallbackem
         const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
