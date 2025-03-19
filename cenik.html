@@ -14,6 +14,11 @@
             font-family: 'Verdana', sans-serif;
         }
 
+        /* Plynulé posouvání */
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* Hlavní layout */
         body {
             line-height: 1.6;
@@ -29,13 +34,13 @@
         /* Navigace */
         .navbar {
             background: #fff;
-            padding: 0.6rem 5%; /* Opravená syntaxe */
+            padding: 0.6rem 5%;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            min-height: 80px; /* Konsistentní minimální výška */
+            min-height: 80px;
         }
 
         .nav-content {
@@ -54,7 +59,7 @@
         }
         .logo img {
             width: 200px;
-            height: 70px; /* Stejné jako v index.html */
+            height: 70px;
         }
 
         .nav-links {
@@ -99,19 +104,20 @@
         /* Obsah stránky */
         .content {
             max-width: 1200px;
-            margin: 100px auto 0; /* Zachováno pro odstup od navbar */
+            margin: 100px auto 0;
             padding: 1rem 5%;
         }
 
         h2, h3 {
             color: #fff;
             background: rgba(0, 0, 0, 0.4);
-            font-size: 1.5rem; /* Opravená syntaxe */
+            font-size: 1.5rem;
             padding: 0.5rem 1rem;
             display: inline-block;
             border-radius: 5px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             margin-bottom: 1rem;
+            scroll-margin-top: 100px; /* Přidáno pro posun při scrollování */
         }
 
         /* Styly tabulek */
@@ -128,12 +134,12 @@
             padding: 6px;
             text-align: left;
             color: #333;
-            font-size: 0.8rem; /* Sníženo z implicitní velikosti */
+            font-size: 0.8rem;
         }
 
         td:nth-child(2) {
-            min-width: 60px; /* Minimální šířka sloupce */
-            white-space: nowrap; /* Zabrání zalamování textu */
+            min-width: 60px;
+            white-space: nowrap;
         }
 
         th {
@@ -177,7 +183,7 @@
             }
 
             .navbar {
-                min-height: 60px; /* Menší minimální výška pro mobil */
+                min-height: 60px;
             }
 
             table, th, td {
@@ -189,7 +195,11 @@
             }
 
             td:nth-child(2) {
-                min-width: 40px; /* Sníženo pro menší obrazovky */
+                min-width: 40px;
+            }
+
+            h2, h3 {
+                scroll-margin-top: 80px; /* Menší hodnota pro mobil */
             }
         }
     </style>
@@ -566,7 +576,7 @@
         if (menuBtn && navLinks) {
             menuBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-                console.log('Menu clicked, active class toggled'); // Ladění
+                console.log('Menu clicked, active class toggled');
             });
         } else {
             console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
