@@ -124,15 +124,16 @@
         /* Sekce aktualit */
         .news-section {
             max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 5%;
+            margin: 100px auto 2rem auto; /* Stejné odsazení jako v cenik.html */
+            padding: 0 5%; /* Stejný padding jako v cenik.html */
+            flex-grow: 1;
             color: #333;
         }
 
         .news-section h2 {
-            font-size: 1.5rem;
             color: #fff;
             background: rgba(0, 0, 0, 0.4);
+            font-size: 1.5rem;
             padding: 0.5rem 1rem;
             display: inline-block;
             border-radius: 5px;
@@ -194,7 +195,7 @@
             }
 
             .news-section {
-                margin: 1rem auto;
+                margin: 100px auto 1rem auto; /* Upraveno pro mobilní zobrazení */
             }
 
             .news-item h3 {
@@ -230,10 +231,11 @@
 
     <section class="hero">
         <!-- Prázdná sekce, pouze s pozadím -->
-        <section class="news-section">
-            <h2>Aktuality</h2>
-            <div class="news-list"></div>
-        </section>
+    </section>
+
+    <section class="news-section">
+        <h2>Aktuality</h2>
+        <div class="news-list"></div>
     </section>
 
     <footer class="footer">
