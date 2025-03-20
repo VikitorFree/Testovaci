@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Autoškola Kovář - Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Použijeme stejné styly jako v kontakt.html pro konzistenci */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Verdana', sans-serif; }
+        body { line-height: 1.6; color: #333; background-size: cover; background-repeat: no-repeat; position: relative; min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar, .footer { /* Kopie stylů z kontakt.html */ }
+        .admin-section { max-width: 1200px; margin: 100px auto 2rem auto; padding: 1rem 5%; flex-grow: 1; }
+        .login-form, .news-form { background: rgba(255, 255, 255, 0.7); padding: 2rem; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); display: none; }
+        .login-form.active, .news-form.active { display: block; }
+        .login-form h2, .news-form h2 { font-size: 1.5rem; margin-bottom: 1rem; color: #2c3e50; text-align: center; }
+        .login-form input, .news-form input, .news-form textarea { padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px; font-size: 0.9rem; width: 100%; }
+        .news-form textarea { resize: vertical; min-height: 100px; }
+        .login-form button, .news-form button { padding: 0.75rem; background-color: #3498db; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 0.9rem; transition: background-color 0.3s; }
+        .login-form button:hover, .news-form button:hover { background-color: #2980b9; }
+        @media only screen and (max-width: 768px) { /* Responzivní styly jako v kontakt.html */ }
+    </style>
+</head>
+<body>
+    <!-- Navigace stejná jako v kontakt.html -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo"><img src="logo_autoskola_new.png" alt="Logo Autoškola Kovář"></a>
+            <button class="mobile-menu-btn">☰</button>
+            <div class="nav-links">
+                <a href="index.html">Úvod</a>
+                <a href="kurzy.html">Kurzy</a>
+                <a href="cenik.html">Ceník</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="blog.html">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="admin-section">
+        <div class="login-form active">
+            <h2>Přihlášení admina</h2>
+            <input type="password" id="admin-password" placeholder="Heslo" required>
+            <button onclick="login()">Přihlásit</button>
+        </div>
+        <div class="news-form">
+            <h2>Přidat aktualitu</h2>
+            <input type="text" id="news-title" placeholder="Nadpis" required>
+            <textarea id="news-content" placeholder="Text aktuality" required></textarea>
+            <button onclick="addNews()">Přidat</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Autoškola Kovář</p>
+    </footer>
+
+    <script>
+        // Mobilní menu (kopie z kontakt.html)
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => navLinks.classList.toggle('active'));
+        }
+
+        // Jednoduché přihlášení (pro ukázku heslo "admin123")
+        function login() {
+            const password = document.getElementById('admin-password').value;
+            if (password === 'admin123') {
+                document.querySelector('.login-form').classList.remove('active');
+                document.querySelector('.news-form').classList.add('active');
+            } else {
+                alert('Špatné heslo!');
+            }
+        }
+
+        // Přidání aktuality
+        function addNews() {
+            const title = document.getElementById('news-title').value;
+            const content = document.getElementById('news-content').value;
+            if (title && content) {
+                const news = { title, content, date: new Date().toLocaleDateString('cs-CZ') };
+                saveNews(news);
+                alert('Aktualita přidána!');
+                document.getElementById('news-title').value = '';
+                document.getElementById('news-content').value = '';
+            } else {
+                alert('Vyplňte všechna pole!');
+            }
+        }
+
+        // Uložení do JSON (simulace, v reálu by to šlo na server)
+        function saveNews(news) {
+            fetch('news.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.push(news);
+                    // V reálu by zde byl POST request na server
+                    console.log('Nová aktualita:', news);
+                })
+                .catch(() => {
+                    // Pokud news.json neexistuje, vytvoříme nový
+                    const data = [news];
+                    console.log('Vytvořen nový seznam aktualit:', data);
+                });
+        }
+
+        // Unsplash pozadí (kopie z kontakt.html)
+        const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
+        const query = 'driving, car, motorcycle, drivingschool';
+        const width = 1920;
+        const height = 1080;
+        const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => document.body.style.backgroundImage = `url('${data.urls.regular}')`)
+            .catch(() => document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`);
+    </script>
+</body>
+</html>
