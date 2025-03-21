@@ -217,67 +217,78 @@
         <p>© 2025 Autoškola Kovář</p>
     </footer>
 
-    <script>
-        // Mobilní menu
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-        if (menuBtn && navLinks) {
-            menuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                console.log('Menu clicked, active class toggled');
-            });
-        } else {
-            console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
-        }
+<script>
+    // Mobilní menu
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuBtn && navLinks) {
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            console.log('Menu clicked, active class toggled');
+        });
+    } else {
+        console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
+    }
 
-        // Načtení aktualit
-        function loadNews() {
-            fetch('news.json')
-                .then(response => response.json())
-                .then(data => {
-                    const newsList = document.querySelector('.news-list');
-                    newsList.innerHTML = '';
-                    data.reverse().forEach(item => { // Zobrazení od nejnovějšího
-                        const newsItem = document.createElement('div');
-                        newsItem.classList.add('news-item');
-                        newsItem.innerHTML = `
-                            <h3>${item.title}</h3>
-                            <p>${item.content}</p>
-                            <small>Datum: ${item.date}</small>
-                        `;
-                        newsList.appendChild(newsItem);
-                    });
-                })
-                .catch(error => {
-                    console.error('Chyba při načítání aktualit:', error);
-                    const newsList = document.querySelector('.news-list');
-                    newsList.innerHTML = '<p>Zatím žádné aktuality.</p>';
-                });
-        }
-
-        // Unsplash API pro pozadí s fallbackem
-        const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
-        const query = 'driving, car, motorcycle, drivingschool';
-        const width = 1920;
-        const height = 1080;
-        const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
-
-        fetch(url)
+    // Načtení aktualit
+    function loadNews() {
+        console.log('Začínám načítat news.json');
+        fetch('news.json?t=' + new Date().getTime())
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Nepodařilo se načíst obrázek z Unsplash.');
+                    throw new Error('Chyba při fetch news.json: ' + response.status);
                 }
                 return response.json();
             })
             .then(data => {
-                document.body.style.backgroundImage = `url('${data.urls.regular}')`;
-                loadNews(); // Načtení aktualit po nastavení pozadí
+                console.log('Načtená data z news.json:', data);
+                const newsList = document.querySelector('.news-list');
+                newsList.innerHTML = '';
+                // Seřazení podle data sestupně (nejnovější první)
+                data.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(item => {
+                    const newsItem = document.createElement('div');
+                    newsItem.classList.add('news-item');
+                    newsItem.innerHTML = `
+                        <h3>${item.title}</h3>
+                        <p>${item.content}</p>
+                        <small>Datum: ${item.date}</small>
+                    `;
+                    newsList.appendChild(newsItem);
+                });
             })
             .catch(error => {
-                console.error('Chyba při načítání Unsplash: ', error);
-                document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
-                loadNews(); // Načtení aktualit i při chybě
+                console.error('Chyba při načítání aktualit:', error);
+                const newsList = document.querySelector('.news-list');
+                newsList.innerHTML = '<p>Zatím žádné aktuality.</p>';
             });
+    }
+
+    // Unsplash API pro pozadí s fallbackem
+    const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
+    const query = 'driving, car, motorcycle, drivingschool';
+    const width = 1920;
+    const height = 1080;
+    const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Nepodařilo se načíst obrázek z Unsplash.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Unsplash data:', data);
+            document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+            document.body.style.backgroundSize = 'cover';
+            loadNews();
+        })
+        .catch(error => {
+            console.error('Chyba při načítání Unsplash: ', error);
+            document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
+            document.body.style.backgroundSize = 'cover';
+            loadNews();
+        });
     </script>
 </body>
 </html>
