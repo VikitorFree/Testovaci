@@ -315,18 +315,20 @@
         if (window.innerWidth <= 768) {
             let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
-            if (currentScrollTop > lastScrollTop) {
-                // Skrolování dolů – schovat navbar
-                navbar.style.top = `-${navbarHeight}px`;
-            } else {
-                // Skrolování nahoru – zobrazit navbar
-                navbar.style.top = '0';
+            // Reagovat jen na posun větší než 50 pixelů
+            if (Math.abs(currentScrollTop - lastScrollTop) > 50) {
+                if (currentScrollTop > lastScrollTop) {
+                    // Skrolování dolů – schovat navbar
+                    navbar.style.top = `-${navbarHeight}px`;
+                } else {
+                    // Skrolování nahoru – zobrazit navbar
+                    navbar.style.top = '0';
+                }
+                // Aktualizace poslední pozice skrolování
+                lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
             }
-            
-            // Aktualizace poslední pozice skrolování
-            lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop; // Zajištění, že nezůstane záporné
         }
     });
-    </script>
+</script>
 </body>
 </html>
