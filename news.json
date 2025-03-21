@@ -1,5 +1,17 @@
-[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante tortor, fermentum eget libero quis, ultrices tempor lorem. Quisque fringilla orci mi, nec vulputate lorem molestie id. Vestibulum iaculis efficitur enim, ut faucibus diam sollicitudin ut. Proin varius ligula turpis, eget tincidunt urna molestie ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam at massa eu velit sodales maximus eu vitae augue. Nam nec luctus ante, vel ultricies eros.
-
-Aliquam eget gravida arcu. Praesent suscipit, nibh nec venenatis bibendum, arcu nisl venenatis mauris, vel gravida massa purus vel metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin augue sollicitudin, semper sem a, posuere ex. Ut placerat tellus dui, ac molestie neque sollicitudin sed. Morbi tempus purus a odio dapibus, sed vehicula purus volutpat. Donec blandit arcu sapien.
-
-Vivamus venenatis nibh purus, ac pretium elit ultrices a. Vestibulum nec mollis velit, a aliquam erat. Proin vehicula risus ut neque efficitur, vel posuere augue mattis. Nam nec lobortis turpis, eget congue mi. Praesent gravida lectus lectus, eu faucibus nulla tempor quis. Proin molestie sapien quis tellus imperdiet elementum. Vivamus pretium pellentesque massa, vitae volutpat felis pulvinar id. Aenean sit amet lorem nec urna aliquam vehicula.]
+[
+    {
+        "title": "Novinky v autoškole",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ante tortor, fermentum eget libero quis, ultrices tempor lorem. Quisque fringilla orci mi, nec vulputate lorem molestie id. Vestibulum iaculis efficitur enim, ut faucibus diam sollicitudin ut. Proin varius ligula turpis, eget tincidunt urna molestie ac. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam at massa eu velit sodales maximus eu vitae augue. Nam nec luctus ante, vel ultricies eros.",
+        "date": "2025-03-21"
+    },
+    {
+        "title": "Aktualizace kurzů",
+        "content": "Aliquam eget gravida arcu. Praesent suscipit, nibh nec venenatis bibendum, arcu nisl venenatis mauris, vel gravida massa purus vel metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sollicitudin augue sollicitudin, semper sem a, posuere ex. Ut placerat tellus dui, ac molestie neque sollicitudin sed. Morbi tempus purus a odio dapibus, sed vehicula purus volutpat. Donec blandit arcu sapien.",
+        "date": "2025-03-20"
+    },
+    {
+        "title": "Plánované změny",
+        "content": "Vivamus venenatis nibh purus, ac pretium elit ultrices a. Vestibulum nec mollis velit, a aliquam erat. Proin vehicula risus ut neque efficitur, vel posuere augue mattis. Nam nec lobortis turpis, eget congue mi. Praesent gravida lectus lectus, eu faucibus nulla tempor quis. Proin molestie sapien quis tellus imperdiet elementum. Vivamus pretium pellentesque massa, vitae volutpat felis pulvinar id. Aenean sit amet lorem nec urna aliquam vehicula.",
+        "date": "2025-03-19"
+    }
+]
