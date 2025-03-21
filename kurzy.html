@@ -261,40 +261,43 @@
     </footer>
 
     <script>
-        // Mobilní menu
-        const menuBtn = document.querySelector('.mobile-menu-btn');
-        const navlinks = document.querySelector('.nav-links');
+    // Mobilní menu
+    const menuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links'); // Sjednoceno na navLinks
 
-        if (menuBtn && navLinks) {
-            menuBtn.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                console.log('Menu clicked, active class toggled');
-            });
-        } else {
-            console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
-        }
+    if (menuBtn && navLinks) { // Sjednoceno na navLinks
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Sjednoceno na navLinks
+            console.log('Menu clicked, active class toggled');
+        });
+    } else {
+        console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
+    }
 
-        // Unsplash API pro pozadí s fallbackem
-        const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
-        const query = 'driving, car, motorcycle, drivingschool';
-        const width = 1920;
-        const height = 1080;
-        const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
+    // Unsplash API pro pozadí s fallbackem
+    const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
+    const query = 'driving, car, motorcycle, drivingschool';
+    const width = 1920;
+    const height = 1080;
+    const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
 
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Nepodařilo se načíst obrázek z Unsplash.');
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.body.style.backgroundImage = `url('${data.urls.regular}')`;
-            })
-            .catch(error => {
-                console.error('Chyba při načítání Unsplash: ', error);
-                document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
-            });
-    </script>
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Nepodařilo se načíst obrázek z Unsplash. Status: ' + response.status);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Unsplash data:', data); // Přidáno ladění
+            document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+            document.body.style.backgroundSize = 'cover'; // Přidáno pro lepší zobrazení
+        })
+        .catch(error => {
+            console.error('Chyba při načítání Unsplash: ', error);
+            document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
+            document.body.style.backgroundSize = 'cover'; // Přidáno pro lepší zobrazení
+        });
+</script>
 </body>
 </html>
