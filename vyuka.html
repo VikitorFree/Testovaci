@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Autoškola Kovář - Výuka teorie</title>
+    <meta name="description" content="Plán výuky teorie pro kurzy řidičského průkazu v Autoškole Kovář.">
+    <meta name="keywords" content="autoškola, řidičský průkaz, výuka teorie, rozvrh, Kovář">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Verdana', sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            background: #fff;
+            padding: 0.6rem 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            min-height: 80px;
+            transition: top 0.3s ease-in-out;
+        }
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .logo img {
+            width: 200px;
+            height: 70px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        .nav-links .theory-link {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+        .nav-links .theory-link:hover {
+            color: #c0392b;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .theory-section {
+            max-width: 1200px;
+            margin: 100px auto 2rem auto;
+            padding: 0 5% 2rem 5%;
+            flex-grow: 1;
+            color: #333;
+        }
+        .theory-section h1 {
+            font-size: 1.5rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            border-radius: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+            text-align: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .theory-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .theory-table th,
+        .theory-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .theory-table th {
+            background: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            font-weight: 700;
+        }
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem 5%;
+            margin-top: auto;
+        }
+        .footer p {
+            font-size: 0.9rem;
+        }
+        @media only screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .navbar {
+                min-height: 60px;
+            }
+            .theory-section {
+                margin: 100px auto 1rem auto;
+            }
+            .theory-table th,
+            .theory-table td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            .nav-links .theory-link {
+                color: #e74c3c;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="logo_autoskola_new.png" alt="Logo Autoškoly Kovář – profesionální kurzy řidičského průkazu">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <div class="nav-links">
+                <a href="index.html">Úvod</a>
+                <a href="kurzy.html">Kurzy</a>
+                <a href="vyuka.html" class="theory-link">Výuka teorie</a>
+                <a href="cenik.html">Ceník</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="blog.html">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="theory-section">
+        <h1>Výuka teorie</h1>
+        <table class="theory-table">
+            <thead>
+                <tr>
+                    <th>Datum</th>
+                    <th>Téma</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Autoškola Kovář</p>
+    </footer>
+
+    <script>
+        const API_KEY = 'AIzaSyD26ZtdsWrh1ZyuR7WGtO4h6LctkmrVlIA';
+        const SHEET_ID = '1W5g5A7DlTeNSwvS00mAREVQDhdeYi85Yr_pcBgsJW8Y';
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Vyuka!A:B?key=${API_KEY}`;
+
+        function loadTheoryData() {
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error('Chyba při načítání dat');
+                    return response.json();
+                })
+                .then(data => {
+                    const rows = data.values;
+                    const tbody = document.querySelector('.theory-table tbody');
+                    tbody.innerHTML = '';
+                    rows.slice(1).forEach(row => {
+                        tbody.innerHTML += `<tr><td>${row[0]}</td><td>${row[1]}</td></tr>`;
+                    });
+                })
+                .catch(error => {
+                    console.error('Chyba:', error);
+                    document.querySelector('.theory-table tbody').innerHTML = '<tr><td colspan="2">Data se nepodařilo načíst.</td></tr>';
+                });
+        }
+
+        window.onload = function() {
+            loadTheoryData();
+        };
+
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
+        const query = 'driving, car, motorcycle, drivingschool';
+        const width = 1920;
+        const height = 1080;
+        const urlUnsplash = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
+        fetch(urlUnsplash)
+            .then(response => response.json())
+            .then(data => {
+                document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+                document.body.style.backgroundSize = 'cover';
+            })
+            .catch(error => {
+                document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
+                document.body.style.backgroundSize = 'cover';
+            });
+
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar.offsetHeight;
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (Math.abs(currentScrollTop - lastScrollTop) > 50) {
+                    if (currentScrollTop > lastScrollTop) {
+                        navbar.style.top = `-${navbarHeight}px`;
+                    } else {
+                        navbar.style.top = '0';
+                    }
+                    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
