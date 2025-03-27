@@ -37,7 +37,7 @@
             top: 0;   
             z-index: 1000;
             min-height: 80px;
-            transition: top 0.3s ease-in-out; /* Přidán přechod pro plynulý posun */
+            transition: top 0.3s ease-in-out;
         }
 
         .nav-content {
@@ -74,6 +74,15 @@
             color: #3498db;
         }
 
+        .nav-links .theory-link {
+            color: #e74c3c; /* Červená pro Výuka teorie */
+            font-weight: 700;
+        }
+
+        .nav-links .theory-link:hover {
+            color: #c0392b; /* Tmavší červená při hoveru */
+        }
+
         /* Hamburger menu tlačítko - skryté ve výchozím stavu */
         .mobile-menu-btn {
             display: none;
@@ -101,13 +110,13 @@
         /* Sekce aktualit */
         .news-section {
             max-width: 1200px;
-            margin: 100px auto 2rem auto; /* Přesně jako v kurzy.html */
-            padding: 0 5% 2rem 5%; /* Přesně jako v kurzy.html */
+            margin: 100px auto 2rem auto;
+            padding: 0 5% 2rem 5%;
             flex-grow: 1;
             color: #333;
         }
 
-        .news-section h1 { /* Změněno na h1 pro konzistenci s kurzy.html */
+        .news-section h1 {
             font-size: 1.5rem;
             color: #fff;
             background: rgba(0, 0, 0, 0.4);
@@ -119,7 +128,7 @@
             text-align: center;
             width: fit-content;
             margin-left: auto;
-            margin-right: auto; /* Centrovaný nadpis jako v kurzy.html */
+            margin-right: auto;
         }
 
         .news-item {
@@ -176,7 +185,7 @@
             }
 
             .news-section {
-                margin: 100px auto 1rem auto; /* Upraveno pro mobil jako v kurzy.html */
+                margin: 100px auto 1rem auto;
             }
 
             .news-item h3 {
@@ -189,6 +198,10 @@
 
             .news-item small {
                 font-size: 0.7rem;
+            }
+
+            .nav-links .theory-link {
+                color: #e74c3c; /* Červená zůstává i na mobilu */
             }
         }
     </style>
@@ -203,6 +216,7 @@
             <div class="nav-links">
                 <a href="index.html">Úvod</a>
                 <a href="kurzy.html">Kurzy</a>
+                <a href="vyuka.html" class="theory-link">Výuka teorie</a>
                 <a href="cenik.html">Ceník</a>
                 <a href="kontakt.html">Kontakt</a>
                 <a href="blog.html">Blog</a>
@@ -220,65 +234,46 @@
     </footer>
 
     <script>
+        const API_KEY = 'AIzaSyD26ZtdsWrh1ZyuR7WGtO4h6LctkmrVlIA';
+        const SHEET_ID = '1W5g5A7DlTeNSwvS00mAREVQDhdeYi85Yr_pcBgsJW8Y';
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Aktuality!A:C?key=${API_KEY}`;
+
         // Mobilní menu
         const menuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
         if (menuBtn && navLinks) {
             menuBtn.addEventListener('click', () => {
                 navLinks.classList.toggle('active');
-                console.log('Menu clicked, active class toggled');
             });
-        } else {
-            console.log('Chyba: Elementy menuBtn nebo navLinks nebyly nalezeny.');
         }
 
-        // Načtení aktualit
+        // Načtení aktualit z Google Sheets
         function loadNews() {
-            console.log('Začínám načítat news.json');
-            const storedData = localStorage.getItem('newsData');
-            if (storedData) {
-                const data = JSON.parse(storedData);
-                console.log('Načtená data z localStorage:', data);
-                const newsList = document.querySelector('.news-list');
-                newsList.innerHTML = '';
-                data.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(item => {
-                    const newsItem = document.createElement('div');
-                    newsItem.classList.add('news-item');
-                    newsItem.innerHTML = `
-                        <h3>${item.title}</h3>
-                        <p>${item.content}</p>
-                        <small>Datum: ${item.date}</small>
-                    `;
-                    newsList.appendChild(newsItem);
-                });
-            } else {
-                fetch('news.json?t=' + new Date().getTime())
-                    .then(response => {
-                        if (!response.ok) throw new Error('Chyba při fetch news.json: ' + response.status);
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log('Načtená data z news.json:', data);
-                        localStorage.setItem('newsData', JSON.stringify(data));
-                        const newsList = document.querySelector('.news-list');
-                        newsList.innerHTML = '';
-                        data.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach(item => {
-                            const newsItem = document.createElement('div');
-                            newsItem.classList.add('news-item');
-                            newsItem.innerHTML = `
-                                <h3>${item.title}</h3>
-                                <p>${item.content}</p>
-                                <small>Datum: ${item.date}</small>
-                            `;
-                            newsList.appendChild(newsItem);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Chyba při načítání aktualit:', error);
-                        const newsList = document.querySelector('.news-list');
-                        newsList.innerHTML = '<p>Zatím žádné aktuality.</p>';
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error('Chyba při načítání aktualit');
+                    return response.json();
+                })
+                .then(data => {
+                    const rows = data.values;
+                    const newsList = document.querySelector('.news-list');
+                    newsList.innerHTML = '';
+                    rows.slice(1).forEach(row => { // Přeskočí hlavičku
+                        const newsItem = document.createElement('div');
+                        newsItem.classList.add('news-item');
+                        newsItem.innerHTML = `
+                            <h3>${row[1]}</h3> <!-- Název -->
+                            <p>${row[2]}</p>   <!-- Obsah -->
+                            <small>Datum: ${row[0]}</small> <!-- Datum -->
+                        `;
+                        newsList.appendChild(newsItem);
                     });
-            }
+                })
+                .catch(error => {
+                    console.error('Chyba:', error);
+                    const newsList = document.querySelector('.news-list');
+                    newsList.innerHTML = '<p>Zatím žádné aktuality.</p>';
+                });
         }
 
         // Unsplash API pro pozadí
@@ -286,21 +281,20 @@
         const query = 'driving, car, motorcycle, drivingschool';
         const width = 1920;
         const height = 1080;
-        const url = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
+        const urlUnsplash = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
 
-        fetch(url)
+        fetch(urlUnsplash)
             .then(response => {
                 if (!response.ok) throw new Error('Nepodařilo se načíst obrázek z Unsplash.');
                 return response.json();
             })
             .then(data => {
-                console.log('Unsplash data:', data);
                 document.body.style.backgroundImage = `url('${data.urls.regular}')`;
                 document.body.style.backgroundSize = 'cover';
-                loadNews();
+                loadNews(); // Načte aktuality po nastavení pozadí
             })
             .catch(error => {
-                console.error('Chyba při načítání Unsplash: ', error);
+                console.error('Chyba při načítání Unsplash:', error);
                 document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
                 document.body.style.backgroundSize = 'cover';
                 loadNews();
@@ -312,20 +306,14 @@
         const navbarHeight = navbar.offsetHeight;
 
         window.addEventListener('scroll', () => {
-            // Kontrola, zda je šířka obrazovky <= 768px (mobil)
             if (window.innerWidth <= 768) {
                 let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // Reagovat jen na posun větší než 50 pixelů
                 if (Math.abs(currentScrollTop - lastScrollTop) > 50) {
                     if (currentScrollTop > lastScrollTop) {
-                        // Skrolování dolů – schovat navbar
                         navbar.style.top = `-${navbarHeight}px`;
                     } else {
-                        // Skrolování nahoru – zobrazit navbar
                         navbar.style.top = '0';
                     }
-                    // Aktualizace poslední pozice skrolování
                     lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
                 }
             }
