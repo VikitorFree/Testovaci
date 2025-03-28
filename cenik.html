@@ -179,48 +179,71 @@
 
         // Načtení ceníku
         fetch(url)
-            .then(response => {
-                if (!response.ok) throw new Error('Chyba při načítání ceníku');
-                return response.json();
-            })
-            .then(data => {
-                const rows = data.values;
-                const content = document.getElementById('price-content');
-                let currentSection = '';
-                let table = null;
+    .then(response => {
+        if (!response.ok) throw new Error('Chyba při načítání ceníku');
+        return response.json();
+    })
+    .then(data => {
+        const rows = data.values;
+        const content = document.getElementById('price-content');
+        let currentSection = '';
+        let table = null;
 
-                rows.slice(1).forEach(row => { // Přeskočí hlavičku
-                    const [section, group, info, age, standardPrice, individualPrice] = row;
+        rows.slice(1).forEach(row => {
+            const [section, group, info, age, standardPrice, individualPrice] = row;
 
-                    if (section !== currentSection) {
-                        currentSection = section;
-                        content.innerHTML += `<h2>${section}</h2>`;
-                        table = document.createElement('table');
-                        table.innerHTML = `
-                            <tr>
-                                <th>Skupina</th>
-                                <th>Info</th>
-                                <th>Věk</th>
-                                <th>Standardní kurz</th>
-                                <th>Individuální výcvik</th>
-                            </tr>`;
-                        content.appendChild(table);
-                    }
+            if (section !== currentSection) {
+                currentSection = section;
+                // Generujeme ID z názvu sekce (malá písmena, bez diakritiky, mezery na pomlčky)
+                const sectionId = section.toLowerCase()
+                    .replace(/á/g, 'a')
+                    .replace(/ě/g, 'e')
+                    .replace(/í/g, 'i')
+                    .replace(/ů/g, 'u')
+                    .replace(/ý/g, 'y')
+                    .replace(/č/g, 'c')
+                    .replace(/ř/g, 'r')
+                    .replace(/š/g, 's')
+                    .replace(/ž/g, 'z')
+                    .replace(/\s+/g, '-');
+                content.innerHTML += `<h2 id="${sectionId}">${section}</h2>`;
+                table = document.createElement('table');
+                table.innerHTML = `
+                    <tr>
+                        <th>Skupina</th>
+                        <th>Info</th>
+                        <th>Věk</th>
+                        <th>Standardní kurz</th>
+                        <th>Individuální výcvik</th>
+                    </tr>`;
+                content.appendChild(table);
+            }
 
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td>${group || '-'}</td>
-                        <td>${info || '-'}</td>
-                        <td>${age || '-'}</td>
-                        <td>${standardPrice || '-'}</td>
-                        <td>${individualPrice || '-'}</td>`;
-                    table.appendChild(tr);
-                });
-            })
-            .catch(error => {
-                console.error('Chyba:', error);
-                document.getElementById('price-content').innerHTML = '<p>Ceník se nepodařilo načíst.</p>';
-            });
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${group || '-'}</td>
+                <td>${info || '-'}</td>
+                <td>${age || '-'}</td>
+                <td>${standardPrice || '-'}</td>
+                <td>${individualPrice || '-'}</td>`;
+            table.appendChild(tr);
+        });
+
+        // Po načtení dat zkontrolujeme URL hash a scrollujeme
+        const hash = window.location.hash;
+        if (hash) {
+            const target = document.querySelector(hash);
+            if (target) {
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }, 100); // Krátké zpoždění pro načtení DOM
+            }
+        }
+    })
+    .catch(error => {
+        console.error('Chyba:', error);
+        document.getElementById('price-content').innerHTML = '<p>Ceník se nepodařilo načíst.</p>';
+    });
 
         // Unsplash pozadí
         const unsplashKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
