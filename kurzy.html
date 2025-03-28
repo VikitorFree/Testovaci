@@ -6,156 +6,30 @@
     <title>Autoškola Kovář - Kurzy</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Verdana', sans-serif;
-        }
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-size: cover;
-            background-repeat: no-repeat;
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        .navbar {
-            background: #fff;
-            padding: 0.6rem 5%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            min-height: 80px;
-        }
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo img {
-            width: 200px;
-            height: 70px;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #2c3e50;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #3498db;
-        }
-        .nav-links .theory-link {
-            color: #e74c3c; /* Červená barva */
-            font-weight: 700;
-        }
-        .nav-links .theory-link:hover {
-            color: #c0392b; /* Tmavší červená při hoveru */
-        }
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #2c3e50;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        .nav-links.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .courses-section {
-            max-width: 1200px;
-            margin: 100px auto 2rem auto;
-            padding: 0 5% 2rem 5%;
-            flex-grow: 1;
-        }
-        .courses-section h1 {
-            font-size: 1.5rem;
-            color: #fff;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 0.5rem 1rem;
-            display: inline-block;
-            border-radius: 5px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 1rem;
-            text-align: center;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .course-list {
-            list-style-type: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-        .course-item {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-            margin-left: -10px;
-        }
-        .course-item:hover {
-            transform: translateY(-5px);
-        }
-        .course-item ul {
-            padding-left: 0;
-            list-style-type: none;
-        }
-        .course-item li {
-            font-size: 0.9rem;
-            color: #333;
-            margin-bottom: 0.5rem;
-            list-style-type: none;
-        }
-        .course-item a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s;
-        }
-        .course-item a:hover {
-            color: #3498db;
-        }
-        .contact-text {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.7);
-            margin-top: 2rem;
-            color: #333;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1rem 5%;
-            margin-top: auto;
-        }
-        .footer p {
-            font-size: 0.9rem;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Verdana', sans-serif; }
+        body { line-height: 1.6; color: #333; background-size: cover; background-repeat: no-repeat; position: relative; min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar { background: #fff; padding: 0.6rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; min-height: 80px; }
+        .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { width: 200px; height: 70px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #2c3e50; transition: color 0.3s; }
+        .nav-links a:hover { color: #3498db; }
+        .nav-links .theory-link { color: #e74c3c; font-weight: 700; }
+        .nav-links .theory-link:hover { color: #c0392b; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; color: #2c3e50; cursor: pointer; z-index: 1001; }
+        .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: white; padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .courses-section { max-width: 1200px; margin: 100px auto 2rem auto; padding: 0 5% 2rem 5%; flex-grow: 1; }
+        .courses-section h1 { font-size: 1.5rem; color: #fff; background: rgba(0, 0, 0, 0.4); padding: 0.5rem 1rem; display: inline-block; border-radius: 5px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-bottom: 1rem; text-align: center; width: fit-content; margin-left: auto; margin-right: auto; }
+        .course-list { list-style-type: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .course-item { background: rgba(255, 255, 255, 0.7); padding: 1rem; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); transition: transform 0.3s; margin-left: -10px; }
+        .course-item:hover { transform: translateY(-5px); }
+        .course-item ul { padding-left: 0; list-style-type: none; }
+        .course-item li { font-size: 0.9rem; color: #333; margin-bottom: 0.5rem; list-style-type: none; }
+        .course-item a { text-decoration: none; color: #333; transition: color 0.3s; }
+        .course-item a:hover { color: #3498db; }
+        .contact-text { text-align: center; padding: 1rem; background: rgba(255, 255, 255, 0.7); margin-top: 2rem; color: #333; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 1rem 5%; margin-top: auto; }
+        .footer p { font-size: 0.9rem; }
         @media only screen and (max-width: 768px) {
             .nav-links { display: none; }
             .mobile-menu-btn { display: block; }
@@ -194,14 +68,14 @@
                     <li><a href="cenik.html#automobil">Skupina B - Osobní automobily do 3500 kg</a></li>
                     <li><a href="cenik.html#automobil">Skupina B96 - Osobní automobily s přípojným vozidlem, nad 3500 kg do 4250 kg</a></li>
                     <li><a href="cenik.html#automobil">Skupina B+E - Osobní automobily s přípojným vozidlem, nad 3500 kg</a></li>
-                    <li><a href="cenik.html#nakladni-autobus">Skupina C - Nákladní automobily</a></li>
-                    <li><a href="cenik.html#nakladni-autobus">Skupina C+E - Nákladní automobily s přípojným vozidlem</a></li>
-                    <li><a href="cenik.html#nakladni-autobus">Skupina D - Autobusy</a></li>
-                    <li><a href="cenik.html#nakladni-autobus">Skupina D+E - Autobusy s přípojným vozidlem</a></li>
-                    <li><a href="cenik.html#doplnkove-sluzby">Profesní školení řidičů</a></li>
-                    <li><a href="cenik.html#prezkouseni">Přezkoušení z odborné způsobilosti (po zákazu řízení)</a></li>
-                    <li><a href="cenik.html#nova-vyuka">Nová výuka/nový výcvik po 3 neúspěšných pokusech u zkoušek</a></li>
-                    <li><a href="cenik.html#doplnkove-sluzby">Kondiční jízdy</a></li>
+                    <li><a href="cenik.html#nakladni-automobil-autobus">Skupina C - Nákladní automobily</a></li>
+                    <li><a href="cenik.html#nakladni-automobil-autobus">Skupina C+E - Nákladní automobily s přípojným vozidlem</a></li>
+                    <li><a href="cenik.html#nakladni-automobil-autobus">Skupina D - Autobusy</a></li>
+                    <li><a href="cenik.html#nakladni-automobil-autobus">Skupina D+E - Autobusy s přípojným vozidlem</a></li>
+                    <li><a href="cenik.html#ostatni">Profesní školení řidičů</a></li>
+                    <li><a href="cenik.html#prezkouseni-z-odborne-zpusobilosti">Přezkoušení z odborné způsobilosti (po zákazu řízení)</a></li>
+                    <li><a href="cenik.html#nova-vyuka-novy-vycvik-po-3">Nová výuka/nový výcvik po 3 neúspěšných pokusech u zkoušek</a></li>
+                    <li><a href="cenik.html#kondicni-jizda">Kondiční jízdy</a></li>
                 </ul>
             </li>
         </ul>
