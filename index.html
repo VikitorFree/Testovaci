@@ -5,204 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Autoškola Kovář - Úvod</title>
     <meta name="description" content="Autoškola Kovář nabízí kurzy řidičského průkazu pro všechny skupiny – od motocyklů po autobusy. Začněte u nás!">
-    <meta name="keywords" content="autoškola, řidičský průkaz, kurzy, motocykl, automobil, nákladní automobil, náklaďák, autobus, přívěs, B96, B.96, B+E, C+E, BE, CE, vrácení řidičáku, odborná způsobilost, kondiční jízdy, Kovář">
+    <meta name="keywords" content="autoškola, řidičský průkaz, kurzy, motocykl, automobil, nákladní automobil, náklaďák, autobus, přívěs, B96, B.96, B+E, C+E, BE, CE, vrácení řidičáku, odborná způsobilost, kondiční jízdy, Orlová, Kovář">
     <style>
-        /* Reset a základní styly */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Verdana', sans-serif;
-        }
-
-        /* Hlavní layout */
-        body {
-            line-height: 1.6;
-            color: #333;
-            background-size: cover;
-            background-repeat: no-repeat;
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* Navigace */
-        .navbar {
-            background: #fff;
-            padding: 0.6rem 5%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;   
-            z-index: 1000;
-            min-height: 80px;
-            transition: top 0.3s ease-in-out;
-        }
-
-        .nav-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            text-decoration: none;
-        }
-        .logo img {
-            width: 200px;
-            height: 70px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #2c3e50;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #3498db;
-        }
-
-        .nav-links .theory-link {
-            color: #e74c3c; /* Červená pro Výuka teorie */
-            font-weight: 700;
-        }
-
-        .nav-links .theory-link:hover {
-            color: #c0392b; /* Tmavší červená při hoveru */
-        }
-
-        /* Hamburger menu tlačítko - skryté ve výchozím stavu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #2c3e50;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* Hamburger menu aktivní stav */
-        .nav-links.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: white;
-            padding: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        /* Sekce aktualit */
-        .news-section {
-            max-width: 1200px;
-            margin: 100px auto 2rem auto;
-            padding: 0 5% 2rem 5%;
-            flex-grow: 1;
-            color: #333;
-        }
-
-        .news-section h1 {
-            font-size: 1.5rem;
-            color: #fff;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 0.5rem 1rem;
-            display: inline-block;
-            border-radius: 5px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            margin-bottom: 1rem;
-            text-align: center;
-            width: fit-content;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .news-item {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 1rem;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1rem;
-        }
-
-        .news-item h3 {
-            font-size: 1.2rem;
-            color: #2c3e50;
-        }
-
-        .news-item p {
-            font-size: 0.9rem;
-        }
-
-        .news-item small {
-            font-size: 0.8rem;
-            color: #666;
-        }
-
-        /* Zápatí */
-        .footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 1rem 5%;
-            margin-top: auto;
-        }
-
-        .footer p {
-            font-size: 0.9rem;
-        }
-
-        /* Responzivita */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Verdana', sans-serif; }
+        body { line-height: 1.6; color: #333; background-size: cover; background-repeat: no-repeat; position: relative; min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar { background: #fff; padding: 0.6rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; min-height: 80px; transition: top 0.3s ease-in-out; }
+        .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; color: #2c3e50; text-decoration: none; }
+        .logo img { width: 200px; height: 70px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #2c3e50; transition: color 0.3s; }
+        .nav-links a:hover { color: #3498db; }
+        .nav-links .theory-link { color: #e74c3c; font-weight: 700; }
+        .nav-links .theory-link:hover { color: #c0392b; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; color: #2c3e50; cursor: pointer; z-index: 1001; }
+        .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: white; padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .news-section { max-width: 1200px; margin: 100px auto 2rem auto; padding: 0 5% 2rem 5%; flex-grow: 1; color: #333; }
+        .news-section h1 { font-size: 1.5rem; color: #fff; background: rgba(0, 0, 0, 0.4); padding: 0.5rem 1rem; display: inline-block; border-radius: 5px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-bottom: 1rem; text-align: center; width: fit-content; margin-left: auto; margin-right: auto; }
+        .news-item { background: rgba(255, 255, 255, 0.7); padding: 1rem; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); margin-bottom: 1rem; }
+        .news-item h3 { font-size: 1.2rem; color: #2c3e50; }
+        .news-item p { font-size: 0.9rem; }
+        .news-item small { font-size: 0.8rem; color: #666; }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 1rem 5%; margin-top: auto; }
+        .footer p { font-size: 0.9rem; }
         @media only screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .navbar {
-                min-height: 60px;
-            }
-
-            .news-section {
-                margin: 100px auto 1rem auto;
-            }
-
-            .news-item h3 {
-                font-size: 1rem;
-            }
-
-            .news-item p {
-                font-size: 0.8rem;
-            }
-
-            .news-item small {
-                font-size: 0.7rem;
-            }
-
-            .nav-links .theory-link {
-                color: #e74c3c; /* Červená zůstává i na mobilu */
-            }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.active { display: flex; }
+            .navbar { min-height: 60px; }
+            .news-section { margin: 100px auto 1rem auto; }
+            .news-item h3 { font-size: 1rem; }
+            .news-item p { font-size: 0.8rem; }
+            .news-item small { font-size: 0.7rem; }
+            .nav-links .theory-link { color: #e74c3c; } /* Červená i v hamburger menu */
         }
     </style>
 </head>
@@ -258,19 +93,18 @@
                     const rows = data.values;
                     const newsList = document.querySelector('.news-list');
                     newsList.innerHTML = '';
-                    rows.slice(1).forEach(row => { // Přeskočí hlavičku
+                    rows.slice(1).forEach(row => {
                         const newsItem = document.createElement('div');
                         newsItem.classList.add('news-item');
                         newsItem.innerHTML = `
-                            <h3>${row[1]}</h3> <!-- Název -->
-                            <p>${row[2]}</p>   <!-- Obsah -->
-                            <small>Datum: ${row[0]}</small> <!-- Datum -->
+                            <h3>${row[1]}</h3>
+                            <p>${row[2]}</p>
+                            <small>Datum: ${row[0]}</small>
                         `;
                         newsList.appendChild(newsItem);
                     });
                 })
                 .catch(error => {
-                    console.error('Chyba:', error);
                     const newsList = document.querySelector('.news-list');
                     newsList.innerHTML = '<p>Zatím žádné aktuality.</p>';
                 });
@@ -291,20 +125,18 @@
             .then(data => {
                 document.body.style.backgroundImage = `url('${data.urls.regular}')`;
                 document.body.style.backgroundSize = 'cover';
-                loadNews(); // Načte aktuality po nastavení pozadí
+                loadNews();
             })
             .catch(error => {
-                console.error('Chyba při načítání Unsplash:', error);
                 document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
                 document.body.style.backgroundSize = 'cover';
                 loadNews();
             });
 
-        // Schovávání navbaru při skrolování (jen na mobilu)
+        // Schovávání navbaru při skrolování
         let lastScrollTop = 0;
         const navbar = document.querySelector('.navbar');
         const navbarHeight = navbar.offsetHeight;
-
         window.addEventListener('scroll', () => {
             if (window.innerWidth <= 768) {
                 let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
