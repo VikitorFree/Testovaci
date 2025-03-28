@@ -79,7 +79,7 @@
             });
         }
 
-        // Načtení ceníku
+        // Načtení ceníku s vlastními ID
         fetch(url)
             .then(response => {
                 if (!response.ok) throw new Error('Chyba při načítání ceníku');
@@ -91,11 +91,26 @@
                 let currentSection = '';
                 let table = null;
 
+                // Mapování názvů sekcí na zkrácená ID
+                const sectionIdMap = {
+                    'Automobil': 'automobil',
+                    'Motocykl': 'motocykl',
+                    'Nákladní automobil, autobus': 'nakladni-automobil-autobus',
+                    'Sdružený výcvik': 'sdruzeny-vycvik',
+                    'Rozšiřovací výcvik': 'rozsirovaci-vycvik',
+                    'Přezkoušení z odborné způsobilosti (§97 zákona č. 361/2000 Sb.)': 'prezkouseni-z-odborne-zpusobilosti',
+                    'Převod z jiné AŠ': 'prevod-z-jine-as',
+                    'Nová výuka / nový výcvik po 3 neúspěšných zkouškách (dle §39 odst. 2 zákona č. 361/2000 Sb.)': 'nova-vyuka-novy-vycvik-po-3',
+                    'Kondiční jízda 45 minut': 'kondicni-jizda',
+                    'Oprava zkoušek': 'oprava-zkousek',
+                    'Ostatní': 'ostatni'
+                };
+
                 rows.slice(1).forEach(row => {
                     const [section, group, info, age, standardPrice, individualPrice] = row;
                     if (section !== currentSection) {
                         currentSection = section;
-                        const sectionId = section.toLowerCase()
+                        const sectionId = sectionIdMap[section] || section.toLowerCase()
                             .replace(/á/g, 'a').replace(/ě/g, 'e').replace(/í/g, 'i')
                             .replace(/ů/g, 'u').replace(/ý/g, 'y').replace(/č/g, 'c')
                             .replace(/ř/g, 'r').replace(/š/g, 's').replace(/ž/g, 'z')
