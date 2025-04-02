@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Autoškola Kovář - Informace o cookies</title>
+    <meta name="description" content="Informace o používání cookies na stránkách Autoškoly Kovář.">
+    <meta name="keywords" content="autoškola, cookies, ochrana dat, Kovář">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Verdana', sans-serif; }
+        body { line-height: 1.6; color: #333; background-size: cover; background-repeat: no-repeat; position: relative; min-height: 100vh; display: flex; flex-direction: column; }
+        .navbar { background: #fff; padding: 0.6rem 5%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: fixed; width: 100%; top: 0; z-index: 1000; min-height: 80px; transition: top 0.3s ease-in-out; }
+        .nav-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { width: 200px; height: 70px; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: #2c3e50; transition: color 0.3s; }
+        .nav-links a:hover { color: #3498db; }
+        .nav-links .theory-link { color: #e74c3c; font-weight: 700; }
+        .nav-links .theory-link:hover { color: #c0392b; }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.5rem; color: #2c3e50; cursor: pointer; z-index: 1001; }
+        .nav-links.active { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: white; padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .cookies-section { max-width: 1200px; margin: 100px auto 2rem auto; padding: 0 5% 2rem 5%; flex-grow: 1; color: #333; }
+        .cookies-section h1 { font-size: 1.5rem; color: #fff; background: rgba(0, 0, 0, 0.4); padding: 0.5rem 1rem; display: inline-block; border-radius: 5px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin-bottom: 1rem; text-align: center; width: fit-content; margin-left: auto; margin-right: auto; }
+        .cookies-content { background: rgba(255, 255, 255, 0.7); padding: 2rem; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        .cookies-content h2 { font-size: 1.2rem; color: #2c3e50; margin-bottom: 1rem; }
+        .cookies-content p { font-size: 0.9rem; margin-bottom: 1rem; }
+        .cookies-content ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        .cookies-content li { font-size: 0.9rem; color: #333; }
+        .footer { background: #2c3e50; color: white; text-align: center; padding: 1rem 5%; margin-top: auto; }
+        .footer p { font-size: 0.9rem; }
+        @media only screen and (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .nav-links.active { display: flex; }
+            .navbar { min-height: 60px; }
+            .cookies-section { margin: 100px auto 1rem auto; }
+            .cookies-content { padding: 1rem; }
+            .cookies-content p, .cookies-content li { font-size: 0.8rem; }
+            .nav-links .theory-link { color: #e74c3c; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="logo_autoskola_new.png" alt="Logo Autoškola Kovář">
+            </a>
+            <button class="mobile-menu-btn">☰</button>
+            <div class="nav-links">
+                <a href="index.html">Úvod</a>
+                <a href="kurzy.html">Kurzy</a>
+                <a href="vyuka.html" class="theory-link">Výuka teorie</a>
+                <a href="cenik.html">Ceník</a>
+                <a href="kontakt.html">Kontakt</a>
+                <a href="tym.html">Náš tým</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="cookies-section">
+        <h1>Informace o cookies</h1>
+        <div class="cookies-content">
+            <h2>Co jsou cookies?</h2>
+            <p>Cookies jsou malé textové soubory, které webové stránky ukládají do vašeho zařízení, aby si zapamatovaly informace o vaší návštěvě. Na našich stránkách je nepoužíváme přímo, ale využíváme externí služby, které mohou cookies nebo podobné technologie používat.</p>
+
+            <h2>Jaké údaje shromažďujeme?</h2>
+            <p>Naše stránky Autoškoly Kovář nesbírají osobní údaje přímo pomocí cookies, ale využíváme následující externí služby:</p>
+            <ul>
+                <li><strong>Google Sheets API:</strong> Načítáme data (např. aktuality, ceník, rozvrh výuky) z Google Sheets. Tato služba může shromažďovat technické údaje o vašem připojení (např. IP adresu) podle zásad ochrany osobních údajů Google.</li>
+                <li><strong>Unsplash API:</strong> Používáme pro dynamická pozadí stránek. Unsplash může sbírat anonymní údaje o používání jejich služby.</li>
+                <li><strong>Formspree:</strong> Kontaktní formulář na stránce Kontakt odesílá data přes Formspree, které může ukládat informace odeslané vámi (jméno, e-mail, zpráva) a technické údaje.</li>
+                <li><strong>Google reCAPTCHA:</strong> Na kontaktním formuláři chráníme proti spamu. reCAPTCHA může sbírat údaje o vašem zařízení a chování pro ověření, že nejste robot.</li>
+            </ul>
+
+            <h2>Jak cookies spravovat?</h2>
+            <p>Můžete cookies kdykoliv odmítnout nebo smazat v nastavení vašeho prohlížeče. Upozorňujeme, že některé funkce stránek (např. načítání aktualit nebo odeslání formuláře) nemusí bez přístupu k těmto službám fungovat správně.</p>
+
+            <h2>Kontakt</h2>
+            <p>Pokud máte otázky ohledně používání cookies nebo ochrany dat, kontaktujte nás na <a href="mailto:autoskola.kovar@seznam.cz">autoskola.kovar@seznam.cz</a>.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Autoškola Kovář</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <script>
+        // Mobilní menu
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Unsplash API pro pozadí
+        const apiKey = 'tEe9F9bMyErsfVdFqspjzoBocUAml9qcw9MBOwvV9vI';
+        const query = 'driving, car, motorcycle, drivingschool';
+        const width = 1920;
+        const height = 1080;
+        const urlUnsplash = `https://api.unsplash.com/photos/random?client_id=${apiKey}&query=${query}&orientation=landscape&w=${width}&h=${height}`;
+        fetch(urlUnsplash)
+            .then(response => {
+                if (!response.ok) throw new Error('Nepodařilo se načíst obrázek z Unsplash.');
+                return response.json();
+            })
+            .then(data => {
+                document.body.style.backgroundImage = `url('${data.urls.regular}')`;
+                document.body.style.backgroundSize = 'cover';
+            })
+            .catch(error => {
+                document.body.style.backgroundImage = `url('https://via.placeholder.com/1920x1080?text=Autoškola+Kovář+Pozadí')`;
+                document.body.style.backgroundSize = 'cover';
+            });
+
+        // Schovávání navbaru při skrolování
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar.offsetHeight;
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                let currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (Math.abs(currentScrollTop - lastScrollTop) > 50) {
+                    if (currentScrollTop > lastScrollTop) {
+                        navbar.style.top = `-${navbarHeight}px`;
+                    } else {
+                        navbar.style.top = '0';
+                    }
+                    lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+                }
+            }
+        });
+
+        // Cookie Consent
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": { "background": "#2c3e50" },
+                    "button": { "background": "#3498db" }
+                },
+                "content": {
+                    "message": "Tento web používá cookies a externí služby k zajištění funkčnosti a zlepšení zážitku.",
+                    "dismiss": "Souhlasím",
+                    "link": "Více informací",
+                    "href": "/cookies.html"
+                }
+            });
+        });
+    </script>
+</body>
+</html>
