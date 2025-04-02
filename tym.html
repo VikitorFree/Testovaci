@@ -6,6 +6,7 @@
     <title>Autoškola Kovář - Náš tým</title>
     <meta name="description" content="Seznamte se s týmem Autoškoly Kovář – profesionálními instruktory a podporou pro vaše řidičské kurzy.">
     <meta name="keywords" content="autoškola, tým, instruktoři, Kovář, řidičský průkaz">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Verdana', sans-serif; }
         body { line-height: 1.6; color: #333; background-size: cover; background-repeat: no-repeat; position: relative; min-height: 100vh; display: flex; flex-direction: column; }
@@ -37,6 +38,23 @@
         }
     </style>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script>
+    window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": { "background": "#2c3e50" },
+                "button": { "background": "#3498db" }
+            },
+            "content": {
+                "message": "Tento web používá cookies a externí služby k zajištění funkčnosti a zlepšení zážitku.",
+                "dismiss": "Souhlasím",
+                "link": "Více informací",
+                "href": "/cookies.html" // Můžeš vytvořit stránku s podrobnostmi
+            }
+        });
+    });
+</script>
 <body>
     <nav class="navbar">
         <div class="nav-content">
