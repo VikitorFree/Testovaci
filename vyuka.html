@@ -6,6 +6,7 @@
     <title>Autoškola Kovář - Výuka teorie</title>
     <meta name="description" content="Plán výuky teorie pro kurzy řidičského průkazu v Autoškole Kovář.">
     <meta name="keywords" content="autoškola, řidičský průkaz, výuka teorie, rozvrh, Kovář">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <style>
         * {
             margin: 0;
@@ -168,6 +169,23 @@
         }
     </style>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script>
+    window.addEventListener("load", function(){
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": { "background": "#2c3e50" },
+                "button": { "background": "#3498db" }
+            },
+            "content": {
+                "message": "Tento web používá cookies a externí služby k zajištění funkčnosti a zlepšení zážitku.",
+                "dismiss": "Souhlasím",
+                "link": "Více informací",
+                "href": "/cookies.html" // Můžeš vytvořit stránku s podrobnostmi
+            }
+        });
+    });
+</script>
 <body>
     <nav class="navbar">
         <div class="nav-content">
